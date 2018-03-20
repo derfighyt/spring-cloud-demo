@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: registry
+#配置中心
+#  cloud:
+#    config:
+#      uri: http://config:8888
+#      fail-fast: true
+#      password: ${CONFIG_SERVICE_PASSWORD}
+#      username: ${CONFIG_SERVICE_USERNAME}
+
+#注册中心配置，禁止服务中心作为客户端注册自己
+eureka:
+  instance:
+    hostname: registry-server
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+     defaultZone: http://${registry-server}:${server.port}/eureka/
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+#默认端口1111，搭建高可用集群时需要指定端口
+server:
+  port: 1111
