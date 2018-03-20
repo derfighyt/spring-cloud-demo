@@ -1,6 +1,12 @@
+#默认端口1111
+server:
+  port: 1111
+
 spring:
   application:
-    name: registry
+    name: registry-server
+  profiles:
+    active: dev
 #配置中心
 #  cloud:
 #    config:
@@ -9,10 +15,13 @@ spring:
 #      password: ${CONFIG_SERVICE_PASSWORD}
 #      username: ${CONFIG_SERVICE_USERNAME}
 
-#注册中心配置，禁止服务中心作为客户端注册自己
+#开发环境注册中心配置，禁止服务中心作为客户端注册自己
+spring:
+  profiles: dev
+
 eureka:
   instance:
-    hostname: registry-server
+    hostname: localhost
     prefer-ip-address: true
   client:
     register-with-eureka: false
@@ -22,6 +31,30 @@ eureka:
     server:
       waitTimeInMsWhenSyncEmpty: 0
 
-#默认端口1111，搭建高可用集群时需要指定端口
-server:
-  port: 1111
+#高可用配置1，相互注册
+spring:
+  profiles: registry_ha_1
+
+eureka:
+  instance:
+    hostname: registry-server1
+    prefer-ip-address: false
+  client:
+    service-url:
+     defaultZone: http://registry-server2:${server.port}/eureka/
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+#高可用配置2
+spring:
+  profiles: registry_ha_2
+
+eureka:
+  instance:
+    hostname: registry-server2
+    prefer-ip-address: false
+  client:
+    service-url:
+     defaultZone: http://registry-server1:${server.port}/eureka/
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
