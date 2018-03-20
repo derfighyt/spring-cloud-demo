@@ -24,7 +24,7 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <sb.version>2.0.0.M3</sb.version>
+        <sb.version>2.0.0.RELEASE</sb.version>
         <mvn.compile.version>3.6.1</mvn.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -68,7 +68,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M2</version>
+                <version>Finchley.M8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
