@@ -1,3 +1,5 @@
+version: '2'
+
 services:
   registry-server1:
     image: liuli/spring-cloud-registry
