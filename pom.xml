@@ -11,6 +11,7 @@
 
     <modules>
         <module>spring-cloud-registry</module>
+        <!--
         <module>spring-cloud-provider</module>
         <module>spring-cloud-consumer</module>
         <module>spring-cloud-feign-consumer</module>
@@ -18,8 +19,8 @@
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-task</module>
-        <module>spring-cloud-sleuth</module>
         <module>spring-cloud-zipkin</module>
+        -->
     </modules>
 
     <properties>
@@ -68,7 +69,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M8</version>
+                <version>Finchley.M2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
