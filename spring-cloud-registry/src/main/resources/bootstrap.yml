@@ -38,7 +38,7 @@ spring:
 eureka:
   instance:
     hostname: registry-server1
-    prefer-ip-address: false
+    prefer-ip-address: true
   client:
     service-url:
      defaultZone: http://registry-server2:${server.port}/eureka/
@@ -52,7 +52,7 @@ spring:
 eureka:
   instance:
     hostname: registry-server2
-    prefer-ip-address: false
+    prefer-ip-address: true
   client:
     service-url:
      defaultZone: http://registry-server1:${server.port}/eureka/
