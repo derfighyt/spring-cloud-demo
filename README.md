@@ -1,0 +1,1 @@
+** 编译docker镜像：mvn clean package docker:build -DskipTests
