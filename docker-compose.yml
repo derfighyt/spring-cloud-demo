@@ -1,6 +1,7 @@
 version: '2'
 
 services:
+  #服务注册中心2台，相互注册
   registry-server1:
     image: liuli/spring-cloud-registry
     hostname: registry-server1
@@ -16,3 +17,18 @@ services:
     environment:
       - spring.profiles.active=ha2
 
+  #服务网关2台，对内作为普通的微服务注册到eureka，对外需要使用nginx做反向代理
+  gateway-server1:
+    image: liuli/spring-cloud-gateway
+    hostname: gateway-server1
+    ports:
+      - "8711:8711"
+    environment:
+      - spring.profiles.active=ha1
+  gateway-server2:
+    image: liuli/spring-cloud-gateway
+    hostname: gateway-server2
+    ports:
+      - "8712:8711"
+    environment:
+      - spring.profiles.active=ha2

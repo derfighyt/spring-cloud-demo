@@ -11,11 +11,11 @@
 
     <modules>
         <module>spring-cloud-registry</module>
+        <module>spring-cloud-gateway</module>
         <!--
         <module>spring-cloud-provider</module>
         <module>spring-cloud-consumer</module>
         <module>spring-cloud-feign-consumer</module>
-        <module>spring-cloud-zuul</module>
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-task</module>

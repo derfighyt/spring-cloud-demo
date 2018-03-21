@@ -1,0 +1,18 @@
+server:
+  port: 8711
+
+spring:
+  application:
+    name: gateway-server
+  profiles:
+    active: dev
+
+#通过service id从eureka自动发现服务
+zuul:
+  routes:
+    account-service:
+      serviceId: account-service
+      path: /account/**
+    point-service:
+      serviceId: point-service
+      path: /point/**
