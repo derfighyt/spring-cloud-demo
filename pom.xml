@@ -12,6 +12,7 @@
     <modules>
         <module>spring-cloud-registry</module>
         <module>spring-cloud-gateway</module>
+        <module>spring-cloud-account-service</module>
         <!--
         <module>spring-cloud-provider</module>
         <module>spring-cloud-consumer</module>

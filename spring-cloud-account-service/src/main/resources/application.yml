@@ -1,0 +1,9 @@
+#微服务示例：账户服务
+spring:
+  application:
+    name: account-service
+  profiles:
+    active: dev
+
+server:
+  port: 8801

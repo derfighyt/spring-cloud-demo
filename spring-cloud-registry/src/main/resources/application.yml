@@ -1,9 +1,9 @@
 #默认端口8761
-server:
-  port: 8761
-
 spring:
   application:
     name: registry-server
   profiles:
     active: dev
+
+server:
+  port: 8761

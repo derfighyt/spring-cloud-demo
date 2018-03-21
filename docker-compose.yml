@@ -17,6 +17,15 @@ services:
     environment:
       - spring.profiles.active=ha2
 
+  #账户服务1台
+  account-server1:
+      image: liuli/account-service
+      hostname: account-server1
+      ports:
+        - "8801:8801"
+      environment:
+        - spring.profiles.active=ha1
+
   #服务网关2台，对内作为普通的微服务注册到eureka，对外需要使用nginx做反向代理
   gateway-server1:
     image: liuli/spring-cloud-gateway
