@@ -7,12 +7,12 @@ services:
     ports:
       - "8761:8761"
     environment:
-      - spring.profiles.active=registry_ha_1
+      - spring.profiles.active=ha1
   registry-server2:
     image: liuli/spring-cloud-registry
     hostname: registry-server2
     ports:
       - "8762:8761"
     environment:
-      - spring.profiles.active=registry_ha_2
+      - spring.profiles.active=ha2
 
