@@ -3,3 +3,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://registry-server1:8761/eureka/,http://registry-server2:8761/eureka/
+
+spring:
+  zipkin:
+    base-url: http://zipkin-server:9411

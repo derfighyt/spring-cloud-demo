@@ -15,3 +15,7 @@ cd ..
 cd spring-cloud-registry
 mvn clean package docker:build
 cd ..
+
+cd spring-cloud-zipkin
+mvn clean package docker:build
+cd ..

@@ -14,11 +14,11 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-account-service</module>
         <module>spring-cloud-point-service</module>
+        <module>spring-cloud-zipkin</module>
         <!--
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-task</module>
-        <module>spring-cloud-zipkin</module>
         -->
     </modules>
 
