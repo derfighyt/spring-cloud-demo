@@ -1,0 +1,12 @@
+#开发环境注册中心配置，禁止服务中心作为客户端注册自己
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+     defaultZone: http://localhost:${server.port}/eureka/
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
