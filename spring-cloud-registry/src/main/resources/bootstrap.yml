@@ -1,6 +1,6 @@
-#默认端口1111
+#默认端口8761
 server:
-  port: 1111
+  port: 8761
 
 spring:
   application:
@@ -40,6 +40,8 @@ eureka:
     hostname: registry-server1
     prefer-ip-address: true
   client:
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
      defaultZone: http://registry-server2:${server.port}/eureka/
     server:
@@ -54,6 +56,8 @@ eureka:
     hostname: registry-server2
     prefer-ip-address: true
   client:
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
      defaultZone: http://registry-server1:${server.port}/eureka/
     server:

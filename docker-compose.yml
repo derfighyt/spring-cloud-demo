@@ -5,21 +5,14 @@ services:
     image: liuli/spring-cloud-registry
     hostname: registry-server1
     ports:
-      - "1111:1111"
+      - "8761:8761"
     environment:
       - spring.profiles.active=registry_ha_1
-    networks:
-      - spring-cloud-network
   registry-server2:
     image: liuli/spring-cloud-registry
     hostname: registry-server2
     ports:
-      - "1112:1111"
+      - "8762:8761"
     environment:
       - spring.profiles.active=registry_ha_2
-    networks:
-      - spring-cloud-network
 
-networks:
-  spring-cloud-network:
-    driver: overlay
