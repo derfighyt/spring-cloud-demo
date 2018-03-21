@@ -2,7 +2,6 @@ package com.liuli.springcloud.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.apache.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,14 +41,14 @@ public class AccessFilter extends ZuulFilter {
 
         log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
 
-        Object accessToken = request.getParameter("accessToken");
-        if (accessToken == null) {
-            log.warn("access token is empty");
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
-            ctx.setResponseBody("{\"error\" : 401}");//设置返回体
-            return null;
-        }
+//        Object accessToken = request.getParameter("accessToken");
+//        if (accessToken == null) {
+//            log.warn("access token is empty");
+//            ctx.setSendZuulResponse(false);
+//            ctx.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
+//            ctx.setResponseBody("{\"error\" : 401}");//设置返回体
+//            return null;
+//        }
 
         log.info("access token ok");
         return null;
