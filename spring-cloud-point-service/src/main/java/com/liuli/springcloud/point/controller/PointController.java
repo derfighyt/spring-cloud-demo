@@ -31,7 +31,7 @@ public class PointController {
 //                ", port: " + instance.getPort() +
 //                ", serviceId: " + instance.getServiceId());
 //
-        String result = userId + "has 100 points.";
+        String result = userId + " has 100 points.";
         JSONObject object = new JSONObject();
         object.put("result", result);
         return object.toJSONString();
