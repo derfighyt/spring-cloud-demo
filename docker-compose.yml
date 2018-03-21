@@ -17,6 +17,22 @@ services:
     environment:
       - spring.profiles.active=ha2
 
+  #积分服务2台
+  point-server1:
+    image: liuli/point-service
+    hostname: point-server1
+    ports:
+      - "8811:8811"
+    environment:
+      - spring.profiles.active=ha1
+  point-server2:
+    image: liuli/point-service
+    hostname: point-server2
+    ports:
+      - "8812:8811"
+    environment:
+      - spring.profiles.active=ha1
+
   #账户服务1台
   account-server1:
       image: liuli/account-service

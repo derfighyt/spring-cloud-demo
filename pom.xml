@@ -13,6 +13,7 @@
         <module>spring-cloud-registry</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-account-service</module>
+        <module>spring-cloud-point-service</module>
         <!--
         <module>spring-cloud-provider</module>
         <module>spring-cloud-consumer</module>
@@ -68,6 +69,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.28</version>
+        </dependency>
+        <!--使用okhttp替换默认的http client-->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.10.0</version>
         </dependency>
     </dependencies>
 

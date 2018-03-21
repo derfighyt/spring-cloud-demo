@@ -9,11 +9,18 @@ server:
 
 #通过service id从eureka自动发现服务
 #如果不配置这个，zuul也会从eureka自动获取服务列表，使用serviceId作为path映射，可以通过这个映射不同的path
-#zuul:
-#  routes:
-#    account-service:
-#      serviceId: account-service
-#      path: /account/**
-#    point-service:
-#      serviceId: point-service
-#      path: /point/**
+zuul:
+  routes:
+    account-service:
+      serviceId: account-service
+      path: /account/**
+    point-service:
+      serviceId: point-service
+      path: /point/**
+
+#配置使用okhttp替换默认的http client
+ribbon:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true

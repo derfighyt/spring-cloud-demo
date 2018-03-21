@@ -1,12 +1,12 @@
-#微服务示例：账户服务
+#微服务示例：积分服务
 spring:
   application:
-    name: account-service
+    name: point-service
   profiles:
     active: dev
 
 server:
-  port: 8801
+  port: 8811
 
 #配置使用okhttp替换默认的http client
 ribbon:
@@ -20,3 +20,4 @@ feign:
     enabled: false
   okhttp:
     enabled: true
+

@@ -1,0 +1,5 @@
+#开发环境注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
