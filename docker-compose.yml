@@ -57,3 +57,9 @@ services:
       - "8712:8711"
     environment:
       - spring.profiles.active=ha2
+  #服务跟踪1台，zipkin
+  zipkin-server1:
+    image: liuli/spring-cloud-zipkin
+    hostname: zipkin-server
+    ports:
+      - "9411:9411"
