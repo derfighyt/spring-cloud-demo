@@ -25,9 +25,16 @@ public class PointController {
     public String point(@PathVariable String userId) throws InterruptedException {
         logger.info("point-service#point is called");
 
+//        ServiceInstance instance = client.getInstances("compute-service").get(0);
+//        //Thread.sleep(10000);  //测试服务超时断路器功能
+//        logger.info("/add, host:" + instance.getHost() +
+//                ", port: " + instance.getPort() +
+//                ", serviceId: " + instance.getServiceId());
+//
         String result = userId + "has 100 points.";
         JSONObject object = new JSONObject();
         object.put("result", result);
         return object.toJSONString();
+
     }
 }

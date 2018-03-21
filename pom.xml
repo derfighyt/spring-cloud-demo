@@ -15,9 +15,6 @@
         <module>spring-cloud-account-service</module>
         <module>spring-cloud-point-service</module>
         <!--
-        <module>spring-cloud-provider</module>
-        <module>spring-cloud-consumer</module>
-        <module>spring-cloud-feign-consumer</module>
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-task</module>
