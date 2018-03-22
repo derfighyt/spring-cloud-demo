@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: HelloWorldTask
+  cloud:
+    task:
+      table-prefix: TASK_  #默认前缀
+      initialize:
+        enable: false #true为自动建表
+
+logging:
+  level:
+    org.springframework.cloud.task: DEBUG
+
