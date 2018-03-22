@@ -1,38 +1,38 @@
-# Spring Cloud Demo
+# Spring Cloud Demo 
 
-基于Spring Cloud的微服务架构示例
+基于Spring Cloud的微服务架构示例 
 
-******
+****** 
 
-## 启动方式
+## 启动方式 
 
-### 本地启动
-各子模块可以单独作为spring boot项目启动，进入子模块根目录执行：`mvn clean spring-boot:run` 
+### 本地启动 
+各子模块可以单独作为spring boot项目启动，进入子模块根目录执行：`mvn clean spring-boot:run`  
 
-### docker
-各子模块使用docker-maven-plugin插件打包docker镜像。
-进入子模块根目录，打包docker镜像：`mvn clean package docker:build`
+### docker 
+各子模块使用docker-maven-plugin插件打包docker镜像。  
+进入子模块根目录，打包docker镜像：`mvn clean package docker:build`  
+或通过项目根目录下的start.sh批量打包  
 
-或通过项目根目录下的start.sh批量打包
-
-启动单个服务：`docker run -p 映射端口:服务端口 镜像名称`
+启动单个服务：`docker run -p 映射端口:服务端口 镜像名称` 
 通过docker compose批量启动，进入项目根目录：`docker-compose up` 或 `docker-compose -f docker-compose-base.yml up`
-docker-compose.yml：全量环境，不包括任务，配置中心
-docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一些配置
 
-**常用docker命令**
-查看docker镜像：`docker images`
-查看运行的容器： `docker ps`
-查看容器输出：`docker logs`
-停止容器： `docker stop`
-重启容器： `docker restart`
-查看容器内部进程： `docker top`
-移除容器： `docker rm`
-杀死所有正在运行的容器： `docker kill $(docker ps -a -q)`
-删除所有已经停职的容器： `docker rm $(docker ps -a -q)`
+docker-compose.yml：全量环境，不包括任务，配置中心 
+docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一些配置 
 
-##服务地址
-本地使用localhost，docker启动使用docker服务器ip
+**常用docker命令** 
+查看docker镜像：`docker images` 
+查看运行的容器： `docker ps` 
+查看容器输出：`docker logs` 
+停止容器： `docker stop` 
+重启容器： `docker restart` 
+查看容器内部进程： `docker top` 
+移除容器： `docker rm` 
+杀死所有正在运行的容器： `docker kill $(docker ps -a -q)` 
+删除所有已经停职的容器： `docker rm $(docker ps -a -q)` 
+
+##服务地址 
+本地使用localhost，docker启动使用docker服务器ip 
 
 服务节点 | 占用端口 | 访问地址
 ------------ | ------------- | -------------
@@ -47,8 +47,8 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 配置中心客户端示例(Config Client) | 8821 | http://localhost:8821/
 
 
-##注意
-1. FeignClient推荐使用name指定service id
-2. Feign接口如果使用PathVariable必须指定参数名
+##注意 
+1. FeignClient推荐使用name指定service id 
+2. Feign接口如果使用PathVariable必须指定参数名 
 
 
