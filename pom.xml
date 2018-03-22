@@ -17,11 +17,9 @@
         <module>spring-cloud-zipkin</module>
         <module>spring-cloud-hystrix-dashboard</module>
         <module>spring-cloud-turbine</module>
-        <!--
-        <module>spring-cloud-config</module>
-        <module>spring-cloud-config-client</module>
         <module>spring-cloud-task</module>
-        -->
+        <module>spring-cloud-config-server</module>
+        <module>spring-cloud-config-client</module>
     </modules>
 
     <properties>
