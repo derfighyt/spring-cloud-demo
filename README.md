@@ -31,7 +31,7 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 杀死所有正在运行的容器： `docker kill $(docker ps -a -q)`  
 删除所有已经停职的容器： `docker rm $(docker ps -a -q)`  
 
-##服务地址  
+## 服务地址  
 本地使用localhost，docker启动使用docker服务器ip  
 
 服务节点 | 占用端口 | 访问地址
@@ -47,7 +47,7 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 配置中心客户端示例(Config Client) | 8821 | http://localhost:8821/
 
 
-##注意  
+## 注意  
 1. FeignClient推荐使用name指定service id  
 2. Feign接口如果使用PathVariable必须指定参数名  
 
