@@ -9,34 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>account-service</artifactId>
-    <description>微服务示例：账户服务</description>
+    <artifactId>spring-cloud-turbine</artifactId>
+    <description>服务监控聚合器</description>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>account</name>
+    <name>turbine</name>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <artifactId>spring-cloud-netflix-turbine</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>
-        <!--开启hystrix dashboard-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -52,7 +39,7 @@
                 <configuration>
                     <finalName>${project.name}</finalName>
                     <executable>true</executable>
-                    <mainClass>com.liuli.springcloud.account.Application</mainClass>
+                    <mainClass>com.liuli.springcloud.turbine.Application</mainClass>
                     <addResources>true</addResources>
                 </configuration>
                 <executions>
@@ -92,4 +79,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

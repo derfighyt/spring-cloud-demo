@@ -9,3 +9,11 @@
 
 FeignClient推荐使用name指定service id
 Feign接口如果使用PathVariable必须指定参数名
+
+http://localhost:8761/
+http://localhost:8801/info/liuli
+
+http://localhost:9412/hystrix
+
+服务监控流： http://localhost:8801/application/hystrix.stream
+turbine监控流： http://localhost:9413/turbine.stream

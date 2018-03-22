@@ -1,0 +1,6 @@
+server:
+  port: 9412
+
+spring:
+  application:
+    name: hystrix-dashboard

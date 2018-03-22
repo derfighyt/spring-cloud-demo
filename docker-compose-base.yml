@@ -1,6 +1,6 @@
 version: '2'
 
-#完整环境配置，包括注册中心，服务网关，服务节点，服务跟踪，熔断监控，监控聚合器
+#基本环境配置，仅启用服务注册中心，服务网关，服务节点，服务跟踪
 services:
   #服务注册中心2台，相互注册
   registry-server1:
@@ -34,19 +34,12 @@ services:
     environment:
       - spring.profiles.active=ha1
 
-  #账户服务2台
+  #账户服务1台
   account-server1:
       image: liuli/account-service
       hostname: account-server1
       ports:
         - "8801:8801"
-      environment:
-        - spring.profiles.active=ha1
-  account-server2:
-      image: liuli/account-service
-      hostname: account-server2
-      ports:
-        - "8802:8801"
       environment:
         - spring.profiles.active=ha1
 
@@ -72,17 +65,3 @@ services:
     hostname: zipkin-server
     ports:
       - "9411:9411"
-
-  #熔断监控1台，hystrix dashboard
-  monitor-server:
-    image: liuli/spring-cloud-monitor
-    hostname: monitor-server
-    ports:
-      - "9412:9412"
-
-  #熔断监控聚合器1台，turbine
-  turbine-server:
-    image: liuli/spring-cloud-turbine
-    hostname: turbine-server
-    ports:
-      - "9413:9413"

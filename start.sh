@@ -19,3 +19,11 @@ cd ..
 cd spring-cloud-zipkin
 mvn clean package docker:build
 cd ..
+
+cd spring-cloud-hystrix-dashboard
+mvn clean package docker:build
+cd ..
+
+cd spring-cloud-turbine
+mvn clean package docker:build
+cd ..
