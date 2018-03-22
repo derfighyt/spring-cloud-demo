@@ -37,7 +37,7 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 服务节点 | 占用端口 | 访问地址
 ------------ | ------------- | -------------
 服务注册中心(Eureka) | 8761/8762 | http://localhost:8761/
-服务网关(Zuul) | 8711/8712 | http://localhost:8711/info/username
+服务网关(Zuul) | 8711/8712 | http://localhost:8711/account/info/username
 积分服务 | 8811/8812 | http://localhost:8811/point/username
 账户服务 | 8801/8802 | http://localhost:8801/info/username
 服务跟踪(Zipkin) | 9411 | http://localhost:9411/
@@ -50,5 +50,6 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 ## 注意  
 1. FeignClient推荐使用name指定service id  
 2. Feign接口如果使用PathVariable必须指定参数名  
+3. 同时启动多节点内存占用较大，现在限制了单个节点内存上限50m，可能出现OOM，根据需要调整  
 
 
