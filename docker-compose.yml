@@ -75,7 +75,7 @@ services:
 
   #熔断监控1台，hystrix dashboard
   monitor-server:
-    image: liuli/spring-cloud-monitor
+    image: liuli/spring-cloud-hystrix-dashboard
     hostname: monitor-server
     ports:
       - "9412:9412"
