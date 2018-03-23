@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.liuli.springcloud.account.service.PointService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @RestController
+@Api(description = "账户服务接口", tags = "v1.0")
 public class AccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
@@ -51,6 +53,13 @@ public class AccountController {
     @RequestMapping(value = "/info/{userId}", method = RequestMethod.GET)
     @ResponseBody
     @HystrixCommand(fallbackMethod = "infoFallback")
+    @ApiOperation(value = "用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户名", required = true, dataType = "String", paramType = "path")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "返回用户信息", response = String.class)
+    })
     public String info(@PathVariable String userId) throws InterruptedException {
         logger.info("account-service#info is called");
 
@@ -74,6 +83,13 @@ public class AccountController {
      */
     @RequestMapping(value = "/infoFeign/{userId}", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "用户信息(Feign客户端)")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户名", required = true, dataType = "String", paramType = "path")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "返回用户信息", response = String.class)
+    })
     public String infoFeign(@PathVariable String userId) throws InterruptedException {
         logger.info("account-service#infoFeign is called");
 
