@@ -2,6 +2,7 @@ package com.liuli.springcloud.account.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.liuli.springcloud.account.bean.UserInfo;
 import com.liuli.springcloud.account.service.PointService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.*;
@@ -88,18 +89,20 @@ public class AccountController {
             @ApiImplicitParam(name = "userId", value = "用户名", required = true, dataType = "String", paramType = "path")
     })
     @ApiResponses({
-            @ApiResponse(code = 200, message = "返回用户信息", response = String.class)
+            @ApiResponse(code = 200, message = "返回用户信息", response = UserInfo.class)
     })
-    public String infoFeign(@PathVariable String userId) throws InterruptedException {
+    public UserInfo infoFeign(@PathVariable String userId) throws InterruptedException {
         logger.info("account-service#infoFeign is called");
 
         String pointServiceResult = pointService.point(userId);
         String point = (String)JSON.parseObject(pointServiceResult).get("result");
         String message = "Hello " + userId + "\n";
 
-        JSONObject object = new JSONObject();
-        object.put("message", message);
-        object.put("point", point);
-        return object.toJSONString();
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId(userId);
+        userInfo.setHelloMessage(message);
+        userInfo.setPointMessage(point);
+
+        return userInfo;
     }
 }
