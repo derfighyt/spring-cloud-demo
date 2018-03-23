@@ -38,6 +38,7 @@ docker-compose-base.yml：去掉了熔断器相关节点，可能需要修改一
 ------------ | ------------- | -------------
 服务注册中心(Eureka) | 8761/8762 | http://localhost:8761/
 服务网关(Zuul) | 8711/8712 | http://localhost:8711/account/info/username
+接口文档(Swagger2) | 8711/8712 | http://localhost:8711/swagger-ui.html
 积分服务 | 8811/8812 | http://localhost:8811/point/username
 账户服务 | 8801/8802 | http://localhost:8801/info/username
 服务跟踪(Zipkin) | 9411 | http://localhost:9411/
