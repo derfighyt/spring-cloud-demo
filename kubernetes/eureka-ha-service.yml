@@ -7,11 +7,13 @@ spec:
   ports:
   - port: 8761  #服务端口
     targetPort: 8761
+    nodePort: 30761
     #protocol: TCP
   selector:
     app: eureka-0
 #  clusterIp:
-#  type: NodePort
+  type: NodePort
+
 
 ---
 apiVersion: v1
@@ -23,8 +25,9 @@ spec:
   ports:
   - port: 8762  #服务端口
     targetPort: 8761
+    nodePort: 30762
     #protocol: TCP
   selector:
     app: eureka-1
 #  clusterIp:
-#  type: NodePort
+  type: NodePort
