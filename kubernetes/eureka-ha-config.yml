@@ -25,8 +25,9 @@ spec:
         app: eureka
     spec:
       containers:
-      - image: liuli/spring-cloud-registry
-        name: registry-server1
+      - name: registry-server1
+        image: liuli/spring-cloud-registry
+        imagePullPolicy: IfNotPresent
         env:
         - name: spring.profiles.active
           value: ha1
