@@ -21,9 +21,9 @@ spec:
         env:
         - name: spring.profiles.active
           value: ha1
-        - name: registry-server-host
+        - name: registry_server_host
           value: eureka-service-edu-1
-        - name: registry-server-url
+        - name: registry_server_url
           value: http://eureka-service-edu-2:8762/eureka/
         ports:
         - containerPort: 8761  #容器端口
@@ -52,9 +52,9 @@ spec:
         env:
         - name: spring.profiles.active
           value: ha2
-        - name: registry-server-host
+        - name: registry_server_host
           value: eureka-service-edu-2
-        - name: registry-server-url
+        - name: registry_server_url
           value: http://eureka-service-edu-1:8761/eureka/
         ports:
         - containerPort: 8761  #容器端口
