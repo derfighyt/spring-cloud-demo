@@ -58,6 +58,12 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.3</version>
                 <configuration>
+                    <!--
+                    <serverId>docker-hub</serverId>
+                    <registryUrl>https://10.10.6.50:5000</registryUrl>
+                    <dockerHost>https://10.10.12.205:2376</dockerHost>
+                    <dockerCertPath>C:\Users\admin\.docker\machine\machines\manager</dockerCertPath>
+                    -->
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>

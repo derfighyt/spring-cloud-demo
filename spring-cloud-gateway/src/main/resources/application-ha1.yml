@@ -4,4 +4,4 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://registry-server1:8761/eureka/,http://registry-server2:8761/eureka/
+      defaultZone: ${registry_server_url:http://registry-server1:8761/eureka/,http://registry-server2:8761/eureka/}

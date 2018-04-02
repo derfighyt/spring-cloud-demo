@@ -6,13 +6,13 @@ metadata:
 spec:
   ports:
   - port: 8761  #服务端口
-    targetPort: 8761
-    nodePort: 30761
+    targetPort: 8761  #pod端口
+    nodePort: 30761  #节点对外开放端口
     #protocol: TCP
   selector:
     app: eureka-1
 #  clusterIp:
-  type: NodePort
+  type: NodePort  #NodePort方式对外暴露端口
 
 
 ---

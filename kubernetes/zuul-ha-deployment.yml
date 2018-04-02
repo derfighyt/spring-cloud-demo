@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-service
+spec:
+  replicas: 2  #副本集数量
+  selector:
+    matchLabels:
+      app: zuul
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: zuul
+    spec:
+      containers:
+      - name: zuul-service
+        image: liuli/spring-cloud-gateway
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: spring.profiles.active
+          value: ha1
+        - name: registry_server_url
+          value: http://eureka-service-edu-1:8761/eureka/,http://eureka-service-edu-2:8762/eureka/
+        ports:
+        - containerPort: 8711  #容器端口
