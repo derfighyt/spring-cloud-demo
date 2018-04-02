@@ -32,4 +32,4 @@ spec:
           value: ha1
         ports:
         - containerPort: 8761
-          name: registry-server1
+          name: registry-1
