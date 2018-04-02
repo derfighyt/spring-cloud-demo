@@ -25,10 +25,11 @@ spec:
         app: eureka
     spec:
       containers:
-        - image: liuli/spring-cloud-registry
-      name: registry-server1
-      env:
+      - image: liuli/spring-cloud-registry
+        name: registry-server1
+        env:
         - name: spring.profiles.active
           value: ha1
-      ports:
+        ports:
         - containerPort: 8761
+          name: registry-server1
