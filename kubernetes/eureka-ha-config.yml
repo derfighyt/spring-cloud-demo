@@ -5,16 +5,19 @@ metadata:
 #  namespace: edu-spring-cloud
 spec:
   ports:
-  - port: 8761
+  - port: 8761  #服务端口
+    #protocol: TCP
   selector:
     app: eureka
-  type: NodePort
+#  clusterIp:
+#  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eureka-service-edu-0
 spec:
+  replicas: 1  #副本集数量
   selector:
     matchLabels:
       app: eureka
@@ -33,5 +36,5 @@ spec:
         - name: spring.profiles.active
           value: ha1
         ports:
-        - containerPort: 8761
+        - containerPort: 8761  #容器端口
           name: registry-1
