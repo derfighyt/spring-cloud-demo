@@ -15,15 +15,18 @@ spec:
         app: eureka-0
     spec:
       containers:
-      - name: registry-server1
+      - name: eureka-service-edu-0
         image: liuli/spring-cloud-registry
         imagePullPolicy: IfNotPresent
         env:
         - name: spring.profiles.active
           value: ha1
+        - name: eureka.instance.hostname
+          value: eureka-service-edu-0
+        - name: eureka.client.service-url.defaultZone
+          value: http://eureka-service-edu-1:8762/eureka/
         ports:
         - containerPort: 8761  #容器端口
-          name: registry-1
 
 ---
 apiVersion: apps/v1
@@ -49,6 +52,9 @@ spec:
         env:
         - name: spring.profiles.active
           value: ha2
+        - name: eureka.instance.hostname
+          value: eureka-service-edu-1
+        - name: eureka.client.service-url.defaultZone
+          value: http://eureka-service-edu-0:8761/eureka/
         ports:
         - containerPort: 8761  #容器端口
-          name: registry-1
