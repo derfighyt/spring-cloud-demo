@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-service-edu-0
+spec:
+  ports:
+  - port: 8761
+  selector:
+    app: eureka
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-service-edu-0
+spec:
+  selector:
+    matchLabels:
+      app: eureka
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: eureka
+    spec:
+      containers:
+        - image: liuli/spring-cloud-registry
+      name: registry-server1
+      env:
+        - name: spring.profiles.active
+          value: ha1
+      ports:
+        - containerPort: 8761
