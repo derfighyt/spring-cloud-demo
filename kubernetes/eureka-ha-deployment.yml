@@ -1,37 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-service-edu-0
-spec:
-  replicas: 1  #副本集数量
-  selector:
-    matchLabels:
-      app: eureka-0
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: eureka-0
-    spec:
-      containers:
-      - name: eureka-service-edu-0
-        image: liuli/spring-cloud-registry
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: spring.profiles.active
-          value: ha1
-        - name: eureka.instance.hostname
-          value: eureka-service-edu-0
-        - name: eureka.client.service-url.defaultZone
-          value: http://eureka-service-edu-1:8762/eureka/
-        ports:
-        - containerPort: 8761  #容器端口
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: eureka-service-edu-1
 spec:
   replicas: 1  #副本集数量
@@ -46,15 +15,46 @@ spec:
         app: eureka-1
     spec:
       containers:
-      - name: registry-server1
+      - name: eureka-service-edu-1
+        image: liuli/spring-cloud-registry
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: spring.profiles.active
+          value: ha1
+        - name: registry-server-host
+          value: eureka-service-edu-1
+        - name: registry-server-url
+          value: http://eureka-service-edu-2:8762/eureka/
+        ports:
+        - containerPort: 8761  #容器端口
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-service-edu-2
+spec:
+  replicas: 1  #副本集数量
+  selector:
+    matchLabels:
+      app: eureka-2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: eureka-2
+    spec:
+      containers:
+      - name: eureka-service-edu-2
         image: liuli/spring-cloud-registry
         imagePullPolicy: IfNotPresent
         env:
         - name: spring.profiles.active
           value: ha2
-        - name: eureka.instance.hostname
-          value: eureka-service-edu-1
-        - name: eureka.client.service-url.defaultZone
-          value: http://eureka-service-edu-0:8761/eureka/
+        - name: registry-server-host
+          value: eureka-service-edu-2
+        - name: registry-server-url
+          value: http://eureka-service-edu-1:8761/eureka/
         ports:
         - containerPort: 8761  #容器端口
