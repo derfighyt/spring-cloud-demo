@@ -8,6 +8,21 @@ spec:
   - port: 8761  #服务端口
     #protocol: TCP
   selector:
-    app: eureka
+    app: eureka-0
+#  clusterIp:
+#  type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-service-edu-1
+#  namespace: edu-spring-cloud
+spec:
+  ports:
+  - port: 8762  #服务端口
+    #protocol: TCP
+  selector:
+    app: eureka-1
 #  clusterIp:
 #  type: NodePort

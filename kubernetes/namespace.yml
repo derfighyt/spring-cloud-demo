@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: z3-edu
+   labels:
+     name: z3-edu
+     maintainer: liuli
